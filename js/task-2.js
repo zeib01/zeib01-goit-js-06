@@ -12,15 +12,9 @@ class Storage {
         return this.#items.push(newItem);
 
     }
-    removeItem(itemToRemove) {
-        const findItem = this.#items.indexOf(itemToRemove);
-        if (findItem === -1) {
-            return this.#items;
+    removeItem(itemToRemove){
+        this.#items = this.#items.filter(item => item !== itemToRemove);
         }
-        this.#items.splice(findItem, 1)
-        return this.#items;
-    }
-
 }
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
